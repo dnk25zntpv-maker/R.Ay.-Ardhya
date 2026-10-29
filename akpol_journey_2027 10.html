@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AKPOL Journey 2027</title>
+<style>
+:root{--pink:#f7dce7;--pink2:#f2bfd2;--sage:#cbd9c7;--sage2:#8fa88d;--ink:#34413a;--muted:#738078;--cream:#fffaf7;--white:#fff;--line:#e9e8e1;--rose:#d47c9d;--shadow:0 8px 24px #4b594b12}
+*{box-sizing:border-box}body{margin:0;background:#f8f7f2;color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}button,input,textarea,select{font:inherit}button{cursor:pointer;border:0;border-radius:12px;padding:10px 14px;background:var(--sage2);color:#fff;font-weight:650}button:hover{filter:brightness(.97)}button.secondary{background:#fff;color:var(--ink);border:1px solid var(--line)}button.pink{background:var(--rose)}.app{display:grid;grid-template-columns:245px 1fr;min-height:100vh}.sidebar{background:#fff;padding:25px 17px;border-right:1px solid var(--line);position:sticky;top:0;height:100vh}.brand{display:flex;gap:10px;align-items:center;padding:5px 8px 25px}.brand-icon{height:42px;width:42px;border-radius:15px;background:var(--pink);display:grid;place-items:center;font-size:22px}.brand strong{display:block;font-size:15px;letter-spacing:.3px}.brand small{color:var(--muted);font-size:11px}.nav-label{font-size:10px;color:#9a9f99;letter-spacing:1.5px;padding:12px 12px 7px;font-weight:800}.nav{display:flex;flex-direction:column;gap:5px}.nav button{background:transparent;color:#68736b;text-align:left;font-weight:600;display:flex;align-items:center;gap:12px}.nav button.active,.nav button:hover{background:#f7e7ed;color:#8b4865}.nav .emoji{width:21px;text-align:center}.side-note{position:absolute;bottom:20px;left:17px;right:17px;background:#f2f6ef;border-radius:17px;padding:15px;font-size:12px;line-height:1.5}.side-note b{display:block;margin-bottom:4px}.main{min-width:0;padding:28px clamp(16px,4vw,48px) 50px;max-width:1500px;width:100%;margin:auto}.topbar{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:25px}.eyebrow{font-size:11px;letter-spacing:1.8px;color:#8c9b8b;font-weight:800;text-transform:uppercase}.topbar h1{font-size:clamp(24px,3vw,34px);margin:6px 0 0;letter-spacing:-1px}.date-chip{background:#fff;border:1px solid var(--line);padding:10px 13px;border-radius:13px;font-size:12px;color:var(--muted);white-space:nowrap}.view{display:none}.view.active{display:block}.hero{background:linear-gradient(115deg,#f7dce7 0%,#f8e8ed 50%,#dce7d8 100%);border-radius:25px;padding:clamp(22px,4vw,38px);display:flex;align-items:center;justify-content:space-between;gap:20px;overflow:hidden;position:relative}.hero h2{font-size:clamp(24px,3vw,34px);line-height:1.14;max-width:520px;margin:9px 0 12px;letter-spacing:-.8px}.hero p{max-width:520px;line-height:1.65;color:#58645c;font-size:14px;margin:0 0 20px}.hero-art{font-size:clamp(65px,9vw,110px);min-width:100px;text-align:center;filter:drop-shadow(0 10px 9px #a96f8520)}.btnrow{display:flex;flex-wrap:wrap;gap:9px}.section-head{display:flex;align-items:end;justify-content:space-between;gap:12px;margin:28px 0 14px}.section-head h2{font-size:19px;margin:0}.section-head p{font-size:12px;color:var(--muted);margin:5px 0 0}.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}.grid.two{grid-template-columns:repeat(2,minmax(0,1fr))}.grid.three{grid-template-columns:repeat(3,minmax(0,1fr))}.card{background:#fff;border:1px solid #eeeee8;border-radius:19px;padding:19px;box-shadow:var(--shadow);min-width:0}.stat-top{display:flex;align-items:center;justify-content:space-between;color:var(--muted);font-size:12px}.stat-icon{background:#f8e8ed;border-radius:12px;padding:9px;font-size:18px}.stat-num{font-size:27px;font-weight:800;letter-spacing:-.8px;margin:13px 0 4px}.stat-sub{font-size:11px;color:var(--muted)}.progress{height:8px;background:#edf0e9;border-radius:99px;overflow:hidden;margin-top:12px}.progress span{height:100%;display:block;background:var(--sage2);border-radius:99px;width:0;transition:width .3s}.task{display:flex;gap:11px;align-items:flex-start;padding:12px 0;border-bottom:1px solid #f0f0eb;font-size:13px}.task:last-child{border-bottom:0}.task input{accent-color:var(--sage2);margin-top:3px;width:16px;height:16px}.task small{display:block;color:var(--muted);margin-top:4px}.pill{display:inline-block;background:#eef3eb;color:#627b60;padding:5px 9px;border-radius:99px;font-size:10px;font-weight:750}.pill.pink{background:#faeaf0;color:#a05e79}.muted{color:var(--muted)}.small{font-size:12px}.empty{color:var(--muted);padding:20px;text-align:center;font-size:13px}.subject{display:flex;gap:12px;align-items:center}.subject-icon{height:43px;width:43px;display:grid;place-items:center;border-radius:14px;background:#f8e6ed;font-size:21px;flex-shrink:0}.subject h3{margin:0 0 4px;font-size:15px}.subject p{margin:0;font-size:12px;color:var(--muted);line-height:1.5}.subject .progress{margin-top:14px}.subject-foot{display:flex;justify-content:space-between;align-items:center;margin-top:10px;font-size:11px;color:var(--muted)}.question{font-size:16px;line-height:1.6;font-weight:700;margin:16px 0}.options{display:grid;gap:9px}.option{padding:12px 14px;text-align:left;background:#fff;border:1px solid var(--line);color:var(--ink);font-weight:500;line-height:1.45}.option.chosen{border-color:var(--sage2);background:#f1f6ee}.option.correct{border-color:#7aa579;background:#edf6eb}.option.wrong{border-color:#d98b9f;background:#fff0f3}.feedback{margin-top:14px;padding:14px;border-radius:13px;background:#f3f6f0;font-size:13px;line-height:1.6}.feedback.bad{background:#fff0f3}.row-between{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}.field{display:flex;flex-direction:column;gap:6px;margin:12px 0}.field label{font-size:12px;color:var(--muted);font-weight:700}.field input,.field textarea,.field select{border:1px solid var(--line);background:#fff;border-radius:12px;padding:12px;color:var(--ink);width:100%;outline-color:var(--sage2)}textarea{resize:vertical;min-height:90px}.timer{font-size:32px;font-weight:850;letter-spacing:1px}.notice{background:#fff7e8;border:1px solid #f2e5c8;color:#78643e;border-radius:13px;padding:12px 14px;font-size:12px;line-height:1.6;margin-bottom:15px}.footer{text-align:center;color:#9aa29b;font-size:11px;padding:35px 0 0}.countdown-card{background:#34413a;color:#fff;border-radius:19px;padding:20px;display:flex;align-items:center;justify-content:space-between;gap:12px}.countdown-number{font-size:34px;font-weight:850;line-height:1}.countdown-card small{color:#dbe6d8}.day-plan{border:1px solid var(--line);border-radius:14px;padding:14px;margin:10px 0;background:#fff}.day-plan h4{margin:0 0 8px}.day-plan ul{margin:8px 0;padding-left:20px;font-size:13px;line-height:1.8}.notebook-prompt{background:#f5f0f3;border-radius:14px;padding:14px;font-size:13px;line-height:1.6;white-space:pre-wrap}.day-badge{background:#eaf1e6;color:#587454;border-radius:10px;padding:8px 10px;font-size:12px;font-weight:750}.toast{position:fixed;bottom:18px;right:18px;background:#34413a;color:white;padding:12px 16px;border-radius:12px;box-shadow:var(--shadow);display:none;font-size:13px;z-index:9}
+.study-library{display:grid;gap:12px}
+.study-topic{padding:0;overflow:hidden}
+.study-topic summary{list-style:none;cursor:pointer;display:flex;gap:13px;align-items:center;padding:17px}
+.study-topic summary::-webkit-details-marker{display:none}
+.study-topic summary:after{content:"＋";margin-left:auto;color:#71836e;font-size:20px;font-weight:500}
+.study-topic[open] summary:after{content:"−"}
+.topic-emoji{display:grid;place-items:center;width:43px;height:43px;flex-shrink:0;border-radius:14px;background:#f8e6ed;font-size:21px}
+.study-topic summary b{display:block;font-size:14px}
+.study-topic summary small{display:block;color:var(--muted);font-size:12px;margin-top:4px;font-weight:400;line-height:1.5}
+.study-body{padding:0 20px 20px;line-height:1.7;font-size:13px}
+.study-body h4{font-size:13px;margin:17px 0 5px;color:#536b51}
+.study-body ul{padding-left:21px;margin:6px 0 13px}
+.study-body li{margin:5px 0}
+.study-body a,.card a{color:#6b8765;font-weight:700}
+.study-body .notice{margin-top:12px}
+@media(max-width:600px){.study-topic summary{padding:14px}.study-body{padding:0 15px 17px}.study-body ul{padding-left:18px}}
+
+.hide{display:none!important}
+@media(max-width:980px){.app{grid-template-columns:1fr}.sidebar{height:auto;position:sticky;z-index:5;padding:10px 12px;border-right:0;border-bottom:1px solid var(--line)}.brand{padding:2px 4px 9px}.brand-icon{height:35px;width:35px}.nav-label,.side-note{display:none}.nav{flex-direction:row;overflow-x:auto;gap:4px}.nav button{white-space:nowrap;padding:9px 11px;font-size:12px}.nav button .emoji{width:auto}.main{padding-top:19px}.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.grid.three{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:560px){.topbar{align-items:flex-start}.date-chip{font-size:10px;padding:8px}.hero{padding:22px}.hero-art{display:none}.grid,.grid.two,.grid.three{grid-template-columns:1fr}.stat-num{font-size:24px}.card{padding:16px}.topbar h1{font-size:25px}}
+</style>
+</head>
+<body>
+<div class="app">
+<aside class="sidebar">
+  <div class="brand"><div class="brand-icon">🌷</div><div><strong>AKPOL JOURNEY</strong><small>your 2027 study companion</small></div></div>
+  <div class="nav-label">MENU BELAJAR</div>
+  <nav class="nav" id="nav">
+    <button class="active" data-view="dashboard"><span class="emoji">⌂</span>Dashboard</button>
+    <button data-view="materi"><span class="emoji">📚</span>Materi & Latihan</button>
+    <button data-view="jadwal"><span class="emoji">🗓️</span>Jadwal Belajar</button>
+    <button data-view="notebook"><span class="emoji">📓</span>Notebook / Gemini Book</button>
+    <button data-view="tryout"><span class="emoji">⏱️</span>Tryout CAT</button>
+    <button data-view="catatan"><span class="emoji">📝</span>Catatan</button>
+    <button data-view="fisik"><span class="emoji">🏃🏻‍♀️</span>Latihan Fisik</button>
+    <button data-view="progress"><span class="emoji">🌱</span>Progresku</button>
+  </nav>
+  <div class="side-note"><b>🌿 Pelan-pelan, konsisten.</b>Hari ini tidak harus sempurna. Satu langkah kecil tetap membawamu maju.</div>
+</aside>
+<main class="main">
+<header class="topbar"><div><div class="eyebrow">THE JOURNEY STARTS HERE</div><h1 id="pageTitle">Dashboard belajar</h1></div><div class="date-chip" id="todayChip"></div></header>
+
+<section class="view active" id="view-dashboard">
+  <div class="hero"><div><span class="pill pink">TARGET: AKPOL 2027</span><h2>One step closer to your dream. 🌷</h2><p>Selamat datang kembali! Bangun kesiapanmu sedikit demi sedikit lewat belajar yang terarah, latihan yang konsisten, dan evaluasi yang jujur.</p><div class="btnrow"><button onclick="showView('materi')">Mulai belajar →</button><button class="secondary" onclick="showView('jadwal')">Lihat jadwal</button></div></div><div class="hero-art">📖🌿</div></div>
+  <div class="grid two" style="margin-top:16px">
+    <div class="countdown-card"><div><div class="eyebrow" style="color:#dce7d8">COUNTDOWN MENUJU TES</div><div class="countdown-number" id="countdownNumber">Atur tanggal</div><small id="countdownLabel">Masukkan tanggal tes jika sudah diumumkan.</small></div><div style="font-size:42px">⏳</div></div>
+    <div class="card"><div class="eyebrow">TANGGAL TARGET</div><div class="field"><label>Tanggal tes (isi jika sudah resmi)</label><input id="testDate" type="date"></div><button onclick="saveTestDate()">Simpan tanggal</button><p class="small muted">Hitung mundur akan menyesuaikan tanggal yang kamu masukkan.</p></div>
+  </div>
+  <div class="section-head"><div><h2>Agenda khusus hari ini</h2><p id="dailyPlanLabel">Rencana belajar harian berdasarkan hari ini.</p></div><span class="day-badge" id="dayBadge"></span></div>
+  <div class="card" id="dailyPlanCard"></div>
+  <div class="section-head"><div><h2>Ringkasan perjalananmu</h2><p>Data tersimpan di browser perangkat ini.</p></div><span class="pill">MY JOURNEY</span></div>
+  <div class="grid">
+    <div class="card"><div class="stat-top"><span>Soal dijawab</span><span class="stat-icon">✍️</span></div><div class="stat-num" id="statAnswered">0</div><div class="stat-sub">Total latihan yang sudah dicoba</div></div>
+    <div class="card"><div class="stat-top"><span>Akurasi latihan</span><span class="stat-icon">🎯</span></div><div class="stat-num" id="statAccuracy">—</div><div class="stat-sub">Berdasarkan jawaban yang tersimpan</div></div>
+    <div class="card"><div class="stat-top"><span>Sesi belajar</span><span class="stat-icon">🌱</span></div><div class="stat-num" id="statSessions">0</div><div class="stat-sub">Checklist belajar selesai</div></div>
+    <div class="card"><div class="stat-top"><span>Catatan</span><span class="stat-icon">📝</span></div><div class="stat-num" id="statNotes">0</div><div class="stat-sub">Catatan yang kamu simpan</div></div>
+  </div>
+  <div class="grid two">
+    <div><div class="section-head"><div><h2>Target hari ini</h2><p>Centang saat selesai, ya.</p></div><button class="secondary" onclick="showView('jadwal')">Atur jadwal</button></div><div class="card" id="todayTasks"></div></div>
+    <div><div class="section-head"><div><h2>Mulai dari sini</h2><p>Pilih sesi sesuai energimu hari ini.</p></div></div><div class="card"><div class="task"><span>📘</span><div><b>Belajar materi</b><small>Ulangi konsep dan kerjakan latihan.</small></div><button class="secondary" onclick="showView('materi')">Buka</button></div><div class="task"><span>⏱️</span><div><b>Simulasi CAT</b><small>Latihan fokus dengan timer.</small></div><button class="secondary" onclick="showView('tryout')">Buka</button></div><div class="task"><span>🏃🏻‍♀️</span><div><b>Catat latihan fisik</b><small>Utamakan teknik dan progres yang aman.</small></div><button class="secondary" onclick="showView('fisik')">Buka</button></div></div></div>
+  </div>
+  <div class="footer">AKPOL JOURNEY 2027 · dibuat untuk menemani proses belajarmu 💗</div>
+</section>
+
+<section class="view" id="view-materi">
+  <div class="notice">Materi ini adalah bahan belajar awal, bukan kisi-kisi resmi atau bocoran soal seleksi. Cocokkan cakupan dan ketentuan dengan pengumuman resmi penerimaan AKPOL 2027.</div>
+
+  <div class="section-head"><div><h2>📚 Peta Materi Persiapan AKPOL</h2><p>Silabus belajar awal yang bisa kamu buka per bidang. Tandai topik yang sudah kamu kuasai lewat catatanmu.</p></div><span class="pill">Panduan belajar</span></div>
+  <div class="notice"><b>Penting:</b> ini peta belajar dan bukan kisi-kisi resmi atau bocoran soal. Materi seleksi, urutan tes, dan persyaratan AKPOL 2027 dapat berubah. Cocokkan kembali dengan pengumuman resmi terbaru di <a href="https://penerimaan.polri.go.id/" target="_blank" rel="noopener">Portal Penerimaan Polri</a> dan <a href="https://akpol.ac.id/" target="_blank" rel="noopener">situs AKPOL</a>.</div>
+  <div class="study-library">
+    <details class="card study-topic" open>
+      <summary><span class="topic-emoji">🇮🇩</span><span><b>1. Wawasan Kebangsaan (TWK/WK)</b><small>Konstitusi, dasar negara, persatuan, dan sejarah Indonesia</small></span></summary>
+      <div class="study-body">
+        <h4>A. Pancasila</h4><ul>
+          <li>Kedudukan Pancasila sebagai dasar negara dan ideologi negara; fungsi sebagai pandangan hidup.</li>
+          <li>Sejarah perumusan: BPUPKI, Piagam Jakarta, PPKI, dan penetapan Pancasila pada 18 Agustus 1945.</li>
+          <li>Makna lima sila dan contoh penerapannya di rumah, sekolah, masyarakat, serta dalam kehidupan bernegara.</li>
+          <li>Hubungan antarsila, musyawarah, keadilan sosial, kemanusiaan, dan persatuan.</li>
+        </ul>
+        <h4>B. UUD Negara Republik Indonesia Tahun 1945</h4><ul>
+          <li>Pembukaan UUD 1945: tujuan negara, dasar negara, dan pokok pikiran.</li>
+          <li>Pasal penting untuk dipahami: Pasal 1 (bentuk negara dan kedaulatan), Pasal 27–34 (hak/kewajiban dan kesejahteraan), Pasal 28A–28J (HAM), serta Pasal 30 (pertahanan dan keamanan).</li>
+          <li>Perubahan UUD 1945, lembaga negara, pembagian kekuasaan, dan prinsip negara hukum.</li>
+          <li>Bedakan hak, kewajiban, tanggung jawab warga negara, serta contoh pelaksanaannya.</li>
+        </ul>
+        <h4>C. NKRI, Bhinneka Tunggal Ika, dan Wawasan Nusantara</h4><ul>
+          <li>Makna negara kesatuan berbentuk republik, kedaulatan, wilayah, dan pemerintahan.</li>
+          <li>Keberagaman suku, bahasa, agama, budaya, dan cara menjaga persatuan tanpa menghapus perbedaan.</li>
+          <li>Wawasan Nusantara sebagai cara pandang terhadap Indonesia sebagai satu kesatuan politik, ekonomi, sosial budaya, serta pertahanan-keamanan.</li>
+          <li>Integrasi nasional, toleransi, konflik sosial, gotong royong, dan sikap menghadapi disinformasi.</li>
+        </ul>
+        <h4>D. Sejarah perjuangan dan bela negara</h4><ul>
+          <li>Kebangkitan Nasional, Sumpah Pemuda, Proklamasi Kemerdekaan, dan pembentukan negara Indonesia.</li>
+          <li>Peran tokoh dan organisasi pergerakan; pahami urutan peristiwa dan sebab-akibatnya.</li>
+          <li>Konsep bela negara dan contoh sesuai peran pelajar: disiplin, belajar bertanggung jawab, taat hukum, menjaga persatuan, dan membantu masyarakat.</li>
+          <li>Latihan: buat garis waktu peristiwa, kartu tokoh-tanggal, lalu kerjakan soal sebab-akibat.</li>
+        </ul>
+      </div>
+    </details>
+    <details class="card study-topic">
+      <summary><span class="topic-emoji">🏛️</span><span><b>2. Pengetahuan Umum & Kepolisian</b><small>Lembaga negara, tugas Polri, hukum, dan isu aktual</small></span></summary>
+      <div class="study-body">
+        <h4>A. Dasar kepolisian</h4><ul>
+          <li>Pelajari UU Nomor 2 Tahun 2002 tentang Kepolisian Negara Republik Indonesia dari sumber peraturan resmi.</li>
+          <li>Pahami tugas pokok Polri secara umum: memelihara keamanan dan ketertiban masyarakat, menegakkan hukum, serta memberi perlindungan, pengayoman, dan pelayanan kepada masyarakat.</li>
+          <li>Bedakan peran Polri dan TNI secara umum; pahami prinsip pelayanan publik, profesionalitas, akuntabilitas, dan penghormatan HAM.</li>
+          <li>Kenali lembaga negara dan fungsi dasarnya: Presiden, DPR, DPD, MPR, MA, MK, KY, BPK, serta lembaga terkait lainnya.</li>
+        </ul>
+        <h4>B. Pengetahuan umum dan isu aktual</h4><ul>
+          <li>Ikuti isu nasional dari sumber primer atau media tepercaya; catat apa yang terjadi, lembaga yang terkait, aturan relevan, dan dampaknya bagi masyarakat.</li>
+          <li>Latih literasi digital: cek tanggal, penulis, sumber asli, konteks foto/video, dan bandingkan dengan sumber lain sebelum menyimpulkan.</li>
+          <li>Pelajari istilah dasar hukum, demokrasi, pemilu, pelayanan publik, keamanan masyarakat, dan hak-kewajiban warga negara.</li>
+        </ul>
+        <p><b>Metode:</b> buat ringkasan 1 halaman per topik, tulis definisi dengan kata-katamu sendiri, lalu jawab 10–20 soal latihan.</p>
+      </div>
+    </details>
+    <details class="card study-topic">
+      <summary><span class="topic-emoji">🔢</span><span><b>3. Penalaran Numerik</b><small>Hitungan cepat, pola, dan pemecahan masalah</small></span></summary>
+      <div class="study-body">
+        <h4>Topik inti</h4><ul>
+          <li>Operasi bilangan bulat, pecahan, desimal, urutan operasi, faktor, dan kelipatan.</li>
+          <li>Persentase, rasio/perbandingan, proporsi, skala, rata-rata, serta aritmetika sosial (diskon, untung-rugi, bunga sederhana).</li>
+          <li>Deret angka dan pola: selisih, selisih bertingkat, perkalian/pembagian, pola bergantian, dan kombinasi operasi.</li>
+          <li>Aljabar dasar, persamaan linear, substitusi, dan soal cerita.</li>
+          <li>Kecepatan–jarak–waktu, waktu kerja, perbandingan senilai/berbalik nilai, serta membaca tabel dan grafik.</li>
+          <li>Penalaran logis: pernyataan, kesimpulan, hubungan sebab-akibat, dan eliminasi pilihan yang tidak sesuai.</li>
+        </ul>
+        <h4>Strategi latihan</h4><ul>
+          <li>Kerjakan tanpa melihat kunci terlebih dahulu; tulis langkah hitung agar kesalahan mudah ditemukan.</li>
+          <li>Catat jenis kesalahan: konsep, salah hitung, salah baca, atau kehabisan waktu.</li>
+          <li>Mulai dengan akurasi, lalu tingkatkan kecepatan. Jangan mengorbankan pemahaman demi mengejar timer.</li>
+        </ul>
+      </div>
+    </details>
+    <details class="card study-topic">
+      <summary><span class="topic-emoji">📖</span><span><b>4. Bahasa Indonesia</b><small>Pemahaman bacaan dan penggunaan bahasa</small></span></summary>
+      <div class="study-body">
+        <h4>Topik inti</h4><ul>
+          <li>Ide pokok, gagasan pendukung, informasi tersurat, inferensi, simpulan, tujuan penulis, dan hubungan antarparagraf.</li>
+          <li>Makna kata sesuai konteks, sinonim, antonim, kata rujukan, serta makna denotatif dan konotatif.</li>
+          <li>Kalimat efektif: kehematan, kejelasan, kesejajaran, kelogisan, dan ketepatan struktur.</li>
+          <li>Ejaan dan tanda baca, huruf kapital, kata baku, imbuhan, kata depan di/ke, serta penulisan unsur serapan.</li>
+          <li>Jenis teks, fakta dan opini, argumen, hubungan sebab-akibat, serta menilai apakah simpulan didukung isi bacaan.</li>
+        </ul>
+        <h4>Strategi membaca</h4><ul>
+          <li>Baca pertanyaan terlebih dahulu bila membantu, lalu temukan bagian teks yang relevan.</li>
+          <li>Pilih jawaban yang didukung teks, bukan sekadar pendapat pribadi atau informasi dari luar bacaan.</li>
+        </ul>
+      </div>
+    </details>
+    <details class="card study-topic">
+      <summary><span class="topic-emoji">🌎</span><span><b>5. Bahasa Inggris</b><small>Grammar, vocabulary, dan reading comprehension</small></span></summary>
+      <div class="study-body">
+        <h4>Grammar dan sentence structure</h4><ul>
+          <li>Parts of speech: nouns, pronouns, verbs, adjectives, adverbs, prepositions, conjunctions, dan articles.</li>
+          <li>Subject–verb agreement; singular/plural nouns; countable/uncountable nouns.</li>
+          <li>Tenses utama: simple present, present continuous, simple past, present perfect, past continuous, dan future forms.</li>
+          <li>Verb forms: base form, past tense, past participle; gerund dan infinitive.</li>
+          <li>Pronouns, comparative/superlative, modals, passive voice, conditionals, clauses, conjunctions, dan prepositions.</li>
+          <li>Sentence correction, parallel structure, serta mengenali kalimat yang lengkap dan logis.</li>
+        </ul>
+        <h4>Vocabulary dan reading</h4><ul>
+          <li>Pelajari 5–10 kata per hari: arti, kelas kata, sinonim/antonim bila relevan, dan satu contoh kalimat.</li>
+          <li>Latih main idea, supporting details, inference, reference words, vocabulary in context, author’s purpose, dan tone.</li>
+          <li>Biasakan membaca teks pendek; rangkum isi dalam 1–2 kalimat bahasa Inggris atau Indonesia.</li>
+        </ul>
+      </div>
+    </details>
+    <details class="card study-topic">
+      <summary><span class="topic-emoji">🧠</span><span><b>6. Psikologi, Kecermatan & Penalaran</b><small>Latihan proses berpikir; bukan kunci kepribadian</small></span></summary>
+      <div class="study-body">
+        <h4>Jenis latihan yang bisa dilakukan</h4><ul>
+          <li>Kecermatan visual: mencari simbol/angka yang sama atau berbeda dengan aturan yang jelas.</li>
+          <li>Konsentrasi dan kecepatan: mengerjakan tugas sederhana secara teliti dalam durasi terbatas.</li>
+          <li>Pola angka/huruf, analogi, klasifikasi, hubungan, urutan, dan penalaran logis.</li>
+          <li>Pemahaman instruksi: baca aturan, perhatikan contoh, dan ikuti format jawaban secara tepat.</li>
+          <li>Manajemen waktu: jika diperbolehkan oleh instruksi latihan, lanjutkan ke soal lain lalu kembali ke soal yang sulit.</li>
+        </ul>
+        <div class="notice">Latihan ini hanya untuk membangun fokus dan penalaran. Tidak ada pola jawaban universal yang menjamin lolos tes psikologi. Jawab asesmen resmi dengan jujur dan ikuti instruksi pemeriksa.</div>
+      </div>
+    </details>
+    <details class="card study-topic">
+      <summary><span class="topic-emoji">🧭</span><span><b>7. Mental Ideologi & Kepribadian</b><small>Nilai kebangsaan, integritas, dan sikap bertanggung jawab</small></span></summary>
+      <div class="study-body">
+        <h4>Materi pendalaman</h4><ul>
+          <li>Pancasila, UUD 1945, NKRI, Bhinneka Tunggal Ika, konstitusi, dan bela negara.</li>
+          <li>Integritas: jujur, konsisten, bertanggung jawab, dan berani mengakui kesalahan.</li>
+          <li>Disiplin dan kerja sama: menaati aturan, menghargai perbedaan, menyelesaikan konflik secara damai, dan menerima masukan.</li>
+          <li>Wawasan kebangsaan serta sikap terhadap hoaks, intoleransi, kekerasan, penyalahgunaan wewenang, dan pelanggaran hukum.</li>
+          <li>Siapkan kemampuan menjelaskan pengalaman diri secara jujur: tanggung jawab yang pernah dijalankan, tantangan yang dihadapi, pelajaran yang dipetik, dan alasan ingin mengabdi.</li>
+        </ul>
+        <p>Jangan menghafal jawaban palsu atau berusaha menebak “jawaban ideal”. Fokus pada pemahaman nilai, perilaku nyata, dan kejujuran.</p>
+      </div>
+    </details>
+    <details class="card study-topic">
+      <summary><span class="topic-emoji">💻</span><span><b>8. Literasi Komputer & Kesiapan CAT</b><small>Keterampilan dasar dan kebiasaan mengerjakan ujian digital</small></span></summary>
+      <div class="study-body">
+        <h4>Keterampilan komputer dasar</h4><ul>
+          <li>Penggunaan keyboard, mouse/touchpad, memilih jawaban, berpindah halaman, dan membaca instruksi pada layar.</li>
+          <li>Dasar dokumen, tabel, dan spreadsheet dapat dipelajari sebagai bekal umum; jangan menganggap semuanya pasti diujikan.</li>
+          <li>Latih membaca soal di layar dengan posisi nyaman, pencahayaan baik, dan jeda yang cukup.</li>
+        </ul>
+        <h4>Strategi CAT</h4><ul>
+          <li>Latihan dengan timer setelah memahami materi, bukan sebelum mengerti konsep.</li>
+          <li>Periksa apakah jawaban sudah tersimpan/terpilih sesuai tampilan simulasi.</li>
+          <li>Setelah tryout, analisis akurasi, waktu, dan topik yang paling banyak salah; jadikan itu prioritas pekan berikutnya.</li>
+        </ul>
+      </div>
+    </details>
+    <details class="card study-topic">
+      <summary><span class="topic-emoji">🏃🏻‍♀️</span><span><b>9. Kesiapan Jasmani, Kesehatan & Administrasi</b><small>Persiapan di luar materi akademik</small></span></summary>
+      <div class="study-body">
+        <h4>Kebugaran dan kesehatan</h4><ul>
+          <li>Bangun rutinitas bertahap untuk daya tahan, kekuatan dasar, mobilitas, dan pemulihan. Utamakan teknik yang benar.</li>
+          <li>Catat latihan dan kondisi tubuh; tidur cukup, makan teratur, dan minum sesuai kebutuhan.</li>
+          <li>Jangan menaikkan beban secara mendadak atau memaksakan latihan saat sakit, nyeri, atau pusing. Konsultasikan masalah kesehatan kepada tenaga kesehatan.</li>
+          <li>Standar dan jenis tes jasmani bisa berubah; cek petunjuk resmi untuk angkatan pendaftaranmu.</li>
+        </ul>
+        <h4>Administrasi</h4><ul>
+          <li>Bersama orang tua/wali, cek persyaratan usia, pendidikan, nilai, domisili, tinggi badan, dokumen identitas, KK, ijazah/rapor, dan dokumen lain yang secara eksplisit diminta.</li>
+          <li>Gunakan daftar persyaratan resmi AKPOL 2027 ketika terbit. Jangan menganggap syarat tahun sebelumnya otomatis berlaku.</li>
+          <li>Jangan membayar calo atau pihak yang menjanjikan kelulusan; gunakan kanal resmi untuk informasi dan pendaftaran.</li>
+        </ul>
+      </div>
+    </details>
+  </div>
+  <div class="section-head"><div><h2>🔎 Sumber resmi untuk diverifikasi</h2><p>Gunakan sumber primer untuk ketentuan dan peraturan.</p></div></div>
+  <div class="grid two">
+    <div class="card"><h3>Portal Penerimaan Polri</h3><p class="small muted">Pengumuman, jadwal, persyaratan, dan alur pendaftaran terbaru.</p><a href="https://penerimaan.polri.go.id/" target="_blank" rel="noopener">penerimaan.polri.go.id ↗</a></div>
+    <div class="card"><h3>Akademi Kepolisian</h3><p class="small muted">Informasi institusi dan informasi penerimaan yang tersedia.</p><a href="https://akpol.ac.id/" target="_blank" rel="noopener">akpol.ac.id ↗</a></div>
+    <div class="card"><h3>JDIH / Peraturan BPK</h3><p class="small muted">Cari teks UU No. 2 Tahun 2002 tentang Kepolisian dan peraturan yang berlaku.</p><a href="https://peraturan.bpk.go.id/" target="_blank" rel="noopener">peraturan.bpk.go.id ↗</a></div>
+    <div class="card"><h3>JDIH Nasional</h3><p class="small muted">Cari naskah UUD 1945 dan peraturan perundang-undangan.</p><a href="https://jdihn.go.id/" target="_blank" rel="noopener">jdihn.go.id ↗</a></div>
+  </div>
+
+  <div class="section-head"><div><h2>Pilih bidang latihan</h2><p>Kerjakan soal, lihat kunci, lalu baca pembahasannya.</p></div><span class="pill pink" id="quizCounter">0 soal dijawab</span></div>
+  <div class="grid two" id="subjectCards"></div>
+  <div class="section-head"><div><h2 id="quizHeading">Latihan soal</h2><p id="quizSub">Pilih salah satu bidang di atas untuk memulai.</p></div><button class="secondary" onclick="resetQuiz()">Ulangi bidang</button></div>
+  <div class="card" id="quizPanel"><div class="empty">Pilih bidang latihan untuk menampilkan soal.</div></div>
+</section>
+
+<section class="view" id="view-jadwal">
+  <div class="section-head"><div><h2>Jadwal belajar mingguan</h2><p>Template fleksibel. Sesuaikan dengan sekolah, istirahat, dan kegiatanmu.</p></div><button onclick="resetSchedule()" class="secondary">Pulihkan template</button></div>
+  <div class="notice">Saran: mulai dari sesi pendek yang realistis, misalnya 25–40 menit, diselingi istirahat. Konsistensi lebih penting daripada memaksakan diri.</div>
+  <div class="card" id="scheduleList"></div>
+  <div class="section-head"><div><h2>Tambah target belajar</h2><p>Target tambahan akan masuk ke daftar hari ini.</p></div></div>
+  <div class="card"><div class="field"><label>Target belajar</label><input id="newTask" placeholder="Contoh: Review Pancasila dan UUD 1945"></div><div class="field"><label>Durasi (menit)</label><input id="newDuration" type="number" min="5" max="180" value="30"></div><button onclick="addTask()">Tambah target</button></div>
+</section>
+
+<section class="view" id="view-tryout">
+  <div class="section-head"><div><h2>Simulasi CAT</h2><p>Latihan mandiri dengan waktu. Bukan representasi durasi resmi seleksi.</p></div><span class="pill pink">PRACTICE MODE</span></div>
+  <div class="notice">Mulai dengan jumlah soal dan waktu yang nyaman. Timer berjalan saat kamu menekan Mulai. Hasil latihan disimpan di perangkat ini.</div>
+  <div class="grid two">
+    <div class="card"><div class="field"><label>Jumlah soal</label><select id="tryCount"><option value="5">5 soal · pemanasan</option><option value="10" selected>10 soal · latihan</option><option value="15">15 soal · fokus</option></select></div><div class="field"><label>Waktu</label><select id="tryMinutes"><option value="10">10 menit</option><option value="20" selected>20 menit</option><option value="30">30 menit</option><option value="45">45 menit</option></select></div><div class="btnrow"><button onclick="startTryout()">Mulai tryout</button><button class="secondary" onclick="stopTryout()">Akhiri</button></div><p class="small muted">Timer akan berhenti otomatis saat waktu habis.</p></div>
+    <div class="card"><div class="eyebrow">WAKTU TERSISA</div><div class="timer" id="timerDisplay">20:00</div><div class="progress"><span id="timerBar" style="width:100%"></span></div><p id="tryStatus" class="small muted">Belum ada tryout aktif.</p><div class="row-between"><span class="small muted">Skor tryout terakhir</span><b id="lastScore">—</b></div></div>
+  </div>
+  <div class="section-head"><div><h2>Soal tryout</h2><p id="trySub">Mulai tryout untuk mengambil soal secara acak.</p></div><span class="pill" id="tryProgress">0/0</span></div>
+  <div class="card" id="tryPanel"><div class="empty">Soal tryout akan tampil di sini.</div></div>
+  <div class="section-head"><div><h2>Riwayat tryout</h2><p>Ringkasan percobaan sebelumnya.</p></div></div><div class="card" id="tryHistory"><div class="empty">Belum ada riwayat.</div></div>
+</section>
+
+<section class="view" id="view-notebook">
+  <div class="section-head"><div><h2>Notebook / Gemini Book</h2><p>Ruang kumpulan materi, rangkuman, dan prompt belajar harian.</p></div><span class="pill pink">MY STUDY BOOK</span></div>
+  <div class="notice">Notebook ini tersimpan di browser perangkatmu. Fitur Gemini di sini berupa prompt yang bisa kamu salin lalu tempel ke Gemini atau AI pilihanmu; website tidak terhubung langsung ke akun Gemini.</div>
+  <div class="grid two">
+    <div class="card"><div class="subject"><div class="subject-icon">📓</div><div><h3>Study notebook</h3><p>Tulis ringkasan dengan bahasamu sendiri, simpan istilah penting, dan catat materi yang perlu diulang.</p></div></div>
+      <div class="field"><label>Judul halaman</label><input id="bookTitle" placeholder="Contoh: Pancasila — nilai dan penerapan"></div>
+      <div class="field"><label>Bidang materi</label><select id="bookSubject"><option>Wawasan Kebangsaan</option><option>Numerik & Penalaran</option><option>Bahasa Indonesia</option><option>Bahasa Inggris</option><option>Psikologi & Kecermatan</option><option>Mental Ideologi</option><option>Evaluasi Tryout</option></select></div>
+      <div class="field"><label>Rangkuman / hal yang belum dipahami</label><textarea id="bookBody" rows="6" placeholder="Tulis rangkuman, contoh, atau pertanyaan yang ingin kamu pelajari lagi..."></textarea></div>
+      <button onclick="saveBookNote()">Simpan ke notebook</button>
+    </div>
+    <div class="card"><div class="subject"><div class="subject-icon">✨</div><div><h3>Gemini Book helper</h3><p>Buat prompt untuk meminta AI menyusun materi, kuis, atau flashcard dari catatanmu.</p></div></div>
+      <div class="field"><label>Mau dibantu apa?</label><select id="geminiMode"><option value="summary">Buat rangkuman mudah dipahami</option><option value="quiz">Buat latihan soal dan pembahasan</option><option value="flashcards">Buat flashcard untuk menghafal</option><option value="explain">Jelaskan bagian yang belum kupahami</option><option value="plan">Buat rencana review</option></select></div>
+      <div class="field"><label>Tempel materi atau pertanyaan (opsional)</label><textarea id="geminiInput" rows="5" placeholder="Tempel materi atau pertanyaan di sini..."></textarea></div>
+      <div class="notebook-prompt" id="geminiPrompt">Pilih jenis bantuan untuk membuat prompt belajar.</div>
+      <button style="margin-top:12px" onclick="makeGeminiPrompt()">Buat prompt</button> <button class="secondary" onclick="copyGeminiPrompt()">Salin prompt</button>
+      <p class="small muted">Setelah disalin, buka Gemini dan tempel prompt tersebut. Periksa kembali jawaban AI dengan buku atau sumber resmi.</p>
+    </div>
+  </div>
+  <div class="section-head"><div><h2>Isi notebook tersimpan</h2><p id="bookCountText">0 halaman</p></div></div><div class="grid two" id="bookList"></div>
+</section>
+
+<section class="view" id="view-catatan">
+  <div class="section-head"><div><h2>Buku catatanmu</h2><p>Simpan rangkuman, istilah penting, atau hal yang perlu diulang.</p></div></div>
+  <div class="card"><div class="field"><label>Judul catatan</label><input id="noteTitle" placeholder="Contoh: Lima sila Pancasila"></div><div class="field"><label>Isi catatan</label><textarea id="noteBody" placeholder="Tulis dengan bahasamu sendiri agar lebih mudah diingat..."></textarea></div><button onclick="saveNote()">Simpan catatan</button></div>
+  <div class="section-head"><div><h2>Catatan tersimpan</h2><p id="noteCountText">0 catatan</p></div></div><div class="grid two" id="notesList"></div>
+</section>
+
+<section class="view" id="view-fisik">
+  <div class="section-head"><div><h2>Tracker latihan fisik</h2><p>Catat latihan untuk memantau kebiasaan, bukan untuk memaksakan target.</p></div></div>
+  <div class="notice">Sesuaikan latihan dengan kondisi tubuh, tingkat kebugaran, dan arahan pelatih/guru. Lakukan pemanasan, teknik yang benar, hidrasi, dan istirahat. Hentikan jika terasa sakit atau pusing.</div>
+  <div class="grid three">
+    <div class="card"><div class="subject"><div class="subject-icon">🏃🏻‍♀️</div><div><h3>Lari / kardio</h3><p>Durasi latihan hari ini</p></div></div><div class="field"><label>Menit</label><input id="runMinutes" type="number" min="0" placeholder="Contoh: 15"></div></div>
+    <div class="card"><div class="subject"><div class="subject-icon">💪</div><div><h3>Push-up</h3><p>Jumlah repetisi nyaman</p></div></div><div class="field"><label>Repetisi</label><input id="pushups" type="number" min="0" placeholder="Jumlah repetisi"></div></div>
+    <div class="card"><div class="subject"><div class="subject-icon">🌿</div><div><h3>Sit-up</h3><p>Jumlah repetisi nyaman</p></div></div><div class="field"><label>Repetisi</label><input id="situps" type="number" min="0" placeholder="Jumlah repetisi"></div></div>
+  </div>
+  <div class="card" style="margin-top:14px"><div class="field"><label>Catatan kondisi tubuh / latihan</label><textarea id="fitnessNote" placeholder="Contoh: latihan ringan, teknik tetap terjaga, tidur cukup..."></textarea></div><button onclick="saveFitness()">Simpan latihan hari ini</button></div>
+  <div class="section-head"><div><h2>Riwayat latihan</h2><p>Catatan harian yang tersimpan di browser.</p></div></div><div class="card" id="fitnessHistory"><div class="empty">Belum ada latihan tercatat.</div></div>
+</section>
+
+<section class="view" id="view-progress">
+  <div class="section-head"><div><h2>Perkembangan belajarmu</h2><p>Evaluasi proses, lalu tentukan satu langkah berikutnya.</p></div></div>
+  <div class="grid two"><div class="card"><h3>Progres target mingguan</h3><div class="stat-num" id="weeklyPercent">0%</div><div class="progress"><span id="weeklyBar"></span></div><p class="small muted" id="weeklyText">0 dari 0 target selesai.</p></div><div class="card"><h3>Hasil latihan soal</h3><div class="stat-num" id="overallAccuracy">—</div><p class="small muted" id="overallText">Mulai latihan untuk mengumpulkan data.</p><button class="secondary" onclick="showView('materi')">Lanjut latihan</button></div></div>
+  <div class="section-head"><div><h2>Riwayat jawaban per bidang</h2><p>Gunakan hasil untuk menentukan materi yang perlu diulang.</p></div></div><div class="card" id="subjectProgress"></div>
+  <div class="section-head"><div><h2>Reset data</h2><p>Gunakan dengan hati-hati karena data yang dihapus tidak dapat dikembalikan.</p></div></div><div class="card"><p class="small muted">Data website ini disimpan secara lokal di browser yang kamu gunakan. Jika menghapus data situs atau membuka di perangkat/browser lain, data tidak otomatis ikut pindah.</p><button class="secondary" onclick="exportData()">Unduh cadangan data</button> <button class="pink" onclick="clearData()">Hapus seluruh data lokal</button></div>
+</section>
+</main>
+</div>
+<div class="toast" id="toast"></div>
+<script>
+const KEY='akpolJourney2027_v1';
+const subjects=[
+ {id:'twk',name:'Wawasan Kebangsaan',icon:'🇮🇩',desc:'Pancasila, UUD 1945, NKRI, Bhinneka Tunggal Ika, sejarah dan bela negara.'},
+ {id:'numerik',name:'Numerik & Penalaran',icon:'🔢',desc:'Pola bilangan, aritmetika, logika dasar, dan pemecahan masalah.'},
+ {id:'indo',name:'Bahasa Indonesia',icon:'📖',desc:'Ide pokok, simpulan, makna kata, dan pemahaman teks.'},
+ {id:'english',name:'Bahasa Inggris',icon:'🌎',desc:'Grammar, vocabulary, reading comprehension, dan sentence structure.'},
+ {id:'psikologi',name:'Psikologi & Kecermatan',icon:'🧠',desc:'Latihan konsentrasi, ketelitian, pola, dan penalaran.'},
+ {id:'mi',name:'Mental Ideologi',icon:'🧭',desc:'Nilai kebangsaan, integritas, toleransi, dan sikap dalam situasi.'}
+];
+const questions=[
+{id:'t1',s:'twk',q:'Rumusan Pancasila yang sah dan resmi tercantum dalam bagian Pembukaan UUD NRI Tahun 1945, yaitu pada alinea ....',o:['Pertama','Kedua','Ketiga','Keempat'],a:3,e:'Rumusan Pancasila sebagai dasar negara tercantum dalam alinea keempat Pembukaan UUD NRI Tahun 1945.'},
+{id:'t2',s:'twk',q:'Semboyan Bhinneka Tunggal Ika mengajarkan masyarakat Indonesia untuk ....',o:['Menghapus semua perbedaan budaya','Bersatu tanpa meniadakan keberagaman','Mengutamakan kelompok sendiri','Menyamakan seluruh adat daerah'],a:1,e:'Bhinneka Tunggal Ika berarti berbeda-beda tetapi tetap satu. Keberagaman tetap dihormati dalam persatuan.'},
+{id:'t3',s:'twk',q:'Bentuk negara Indonesia menurut Pasal 1 ayat (1) UUD NRI Tahun 1945 adalah ....',o:['Federasi berbentuk republik','Kesatuan berbentuk republik','Kerajaan konstitusional','Konfederasi'],a:1,e:'Pasal 1 ayat (1) menyatakan bahwa Negara Indonesia ialah Negara Kesatuan yang berbentuk Republik.'},
+{id:'t4',s:'twk',q:'Contoh perilaku yang mencerminkan sila ke-4 Pancasila adalah ....',o:['Memaksakan pendapat pribadi','Menyelesaikan masalah melalui musyawarah','Membantu hanya teman dekat','Mengutamakan kepentingan pribadi'],a:1,e:'Sila keempat menekankan kerakyatan, permusyawaratan, dan perwakilan. Musyawarah memberi ruang untuk mendengar pendapat.'},
+{id:'t5',s:'twk',q:'Salah satu bentuk bela negara yang dapat dilakukan pelajar adalah ....',o:['Menyebarkan informasi tanpa memeriksa kebenarannya','Mematuhi aturan dan belajar dengan tanggung jawab','Merendahkan budaya daerah lain','Menghindari kegiatan sosial'],a:1,e:'Bela negara dapat diwujudkan sesuai peran, misalnya belajar sungguh-sungguh, menaati aturan, menjaga persatuan, dan bertanggung jawab.'},
+{id:'n1',s:'numerik',q:'Tentukan angka berikutnya: 3, 6, 12, 24, ....',o:['30','36','42','48'],a:3,e:'Setiap bilangan dikali 2. Jadi 24 × 2 = 48.'},
+{id:'n2',s:'numerik',q:'Jika 4x + 7 = 31, nilai x adalah ....',o:['4','5','6','7'],a:2,e:'Kurangi kedua ruas dengan 7: 4x = 24. Bagi 4, diperoleh x = 6.'},
+{id:'n3',s:'numerik',q:'Sebuah buku berharga Rp80.000 mendapat diskon 25%. Harga setelah diskon adalah ....',o:['Rp20.000','Rp55.000','Rp60.000','Rp65.000'],a:2,e:'Diskon = 25% × Rp80.000 = Rp20.000. Harga akhir = Rp80.000 − Rp20.000 = Rp60.000.'},
+{id:'n4',s:'numerik',q:'Rasio siswa A dan B adalah 2 : 3. Jika jumlah keduanya 40, banyak siswa B adalah ....',o:['16','20','24','30'],a:2,e:'Jumlah bagian = 2 + 3 = 5. Satu bagian = 40 ÷ 5 = 8, sehingga B = 3 × 8 = 24.'},
+{id:'n5',s:'numerik',q:'Semua anggota klub membaca buku. Dita adalah anggota klub tersebut. Kesimpulan yang tepat adalah ....',o:['Dita tidak suka buku','Dita membaca buku','Semua pembaca adalah anggota klub','Dita ketua klub'],a:1,e:'Jika semua anggota klub membaca buku dan Dita anggota klub, maka Dita membaca buku.'},
+{id:'i1',s:'indo',q:'Bacalah: “Perpustakaan sekolah memperpanjang jam layanan agar siswa memiliki waktu lebih banyak untuk membaca dan menyelesaikan tugas.” Ide pokok kalimat tersebut adalah ....',o:['Siswa harus pulang terlambat','Perpanjangan layanan perpustakaan memberi waktu belajar lebih banyak','Semua siswa menyukai perpustakaan','Tugas sekolah semakin sulit'],a:1,e:'Inti kalimat adalah perpanjangan jam layanan perpustakaan untuk memberi siswa lebih banyak waktu membaca dan menyelesaikan tugas.'},
+{id:'i2',s:'indo',q:'Kata “konsisten” paling dekat maknanya dengan ....',o:['Berubah-ubah','Teratur dan tetap','Terburu-buru','Ragu-ragu'],a:1,e:'Konsisten berarti tetap, ajek, atau dilakukan secara teratur sesuai prinsip atau rencana.'},
+{id:'i3',s:'indo',q:'Kalimat efektif adalah ....',o:['Para siswa-siswa sedang belajar bersama.','Agar supaya lulus, ia belajar.','Siswa kelas XII mengikuti simulasi CAT.','Ia adalah merupakan ketua kelas.'],a:2,e:'Kalimat “Siswa kelas XII mengikuti simulasi CAT” ringkas dan tidak mengandung pemborosan kata.'},
+{id:'i4',s:'indo',q:'Simpulan yang baik dari sebuah teks harus ....',o:['Memuat opini yang tidak dibahas','Bertentangan dengan isi teks','Merangkum gagasan utama berdasarkan isi teks','Selalu lebih panjang dari teks'],a:2,e:'Simpulan harus logis, ringkas, dan sesuai informasi utama dalam teks.'},
+{id:'e1',s:'english',q:'Choose the correct sentence.',o:['She go to school every day.','She goes to school every day.','She going to school every day.','She gone to school every day.'],a:1,e:'For simple present tense, a third-person singular subject (he/she/it) takes a verb ending in -s or -es: “She goes.”'},
+{id:'e2',s:'english',q:'The word “relieved” is closest in meaning to ....',o:['Worried','Angry','Feeling less worried after difficulty','Confused'],a:2,e:'“Relieved” means feeling reassured or less anxious after something difficult or worrying has passed.'},
+{id:'e3',s:'english',q:'Choose the correct past participle of “write”.',o:['Writed','Wrote','Written','Writing'],a:2,e:'Write – wrote – written. “Written” is the past participle, used for example with have/has/had.'},
+{id:'e4',s:'english',q:'Complete the sentence: “I have studied English ___ two hours.”',o:['since','for','at','from'],a:1,e:'Use “for” with a duration: for two hours. Use “since” with a starting point, such as since 7 a.m.'},
+{id:'p1',s:'psikologi',q:'Perhatikan pola huruf: A, C, F, J, O, .... Huruf berikutnya adalah ....',o:['S','T','U','V'],a:2,e:'Posisi huruf bertambah +2, +3, +4, +5, sehingga berikutnya +6. O (15) + 6 = 21, yaitu U.'},
+{id:'p2',s:'psikologi',q:'Manakah pasangan yang berbeda dari pola lainnya?',o:['2 – 4','3 – 9','4 – 16','5 – 20'],a:3,e:'Pada tiga pasangan pertama, bilangan kedua adalah kuadrat bilangan pertama. 5² seharusnya 25, bukan 20.'},
+{id:'p3',s:'psikologi',q:'Saat mengerjakan tugas kelompok, kamu menyadari ada data yang keliru. Sikap paling tepat adalah ....',o:['Membiarkannya agar cepat selesai','Menyalahkan teman di depan kelompok','Memeriksa kembali data dan menyampaikan koreksi dengan sopan','Menghapus bagian teman tanpa memberi tahu'],a:2,e:'Sikap teliti dan kolaboratif ditunjukkan dengan memeriksa bukti, memperbaiki kesalahan, dan berkomunikasi dengan sopan.'},
+{id:'m1',s:'mi',q:'Ketika berbeda pendapat dengan teman dari latar belakang berbeda, tindakan yang paling tepat adalah ....',o:['Menghindari dan merendahkannya','Mendengarkan alasan masing-masing dan berdiskusi dengan hormat','Memaksakan pendapat sendiri','Menyebarkan perdebatan ke media sosial'],a:1,e:'Menghargai perbedaan, mendengar dengan terbuka, dan berdiskusi secara santun mendukung persatuan.'},
+{id:'m2',s:'mi',q:'Kamu menemukan informasi viral tentang isu kebangsaan. Sebelum membagikannya, sebaiknya ....',o:['Langsung membagikan agar cepat diketahui','Memeriksa sumber dan membandingkan dengan sumber tepercaya','Mengubah judul agar lebih menarik','Membagikan hanya karena banyak yang menyebarkan'],a:1,e:'Memeriksa sumber dan kebenaran informasi merupakan bentuk tanggung jawab serta membantu mencegah hoaks.'},
+{id:'m3',s:'mi',q:'Contoh sikap berintegritas saat ujian adalah ....',o:['Melihat jawaban teman ketika sulit','Menggunakan catatan tersembunyi','Mengerjakan dengan jujur sesuai kemampuan','Memberi jawaban kepada teman saat ujian'],a:2,e:'Integritas berarti konsisten pada nilai kejujuran dan tanggung jawab, termasuk saat tidak diawasi.'}
+];
+const defaultTasks=[
+{day:'Senin',text:'TWK: Pancasila dan UUD 1945',duration:30},
+{day:'Selasa',text:'Numerik: pola bilangan dan aritmetika',duration:30},
+{day:'Rabu',text:'Bahasa Indonesia: ide pokok dan simpulan',duration:30},
+{day:'Kamis',text:'English: vocabulary dan grammar',duration:30},
+{day:'Jumat',text:'Mental ideologi: studi situasi dan integritas',duration:25},
+{day:'Sabtu',text:'Latihan campuran / simulasi CAT',duration:40},
+{day:'Minggu',text:'Review catatan dan istirahat aktif',duration:20}
+];
+function fresh(){return {answers:{},tasks:defaultTasks.map((t,i)=>({...t,id:'d'+i,done:false})),notes:[],fitness:[],history:[],schedule:defaultTasks.map(x=>({...x})),lastScore:null}}
+let data;
+try{data=JSON.parse(localStorage.getItem(KEY))||fresh()}catch(e){data=fresh()}
+if(!data.book)data.book=[];
+function save(){localStorage.setItem(KEY,JSON.stringify(data));renderStats()}
+function toast(s){let el=document.getElementById('toast');el.textContent=s;el.style.display='block';clearTimeout(window.toastTimer);window.toastTimer=setTimeout(()=>el.style.display='none',2300)}
+function today(){return new Date().toLocaleDateString('id-ID',{weekday:'long',day:'numeric',month:'long',year:'numeric'})}
+document.getElementById('todayChip').textContent=today();
+const titles={dashboard:'Dashboard belajar',materi:'Materi & latihan',jadwal:'Jadwal belajar',notebook:'Notebook / Gemini Book',tryout:'Tryout CAT',catatan:'Catatan materi',fisik:'Tracker latihan fisik',progress:'Progresku'};
+function showView(id){document.querySelectorAll('.view').forEach(v=>v.classList.toggle('active',v.id==='view-'+id));document.querySelectorAll('#nav button').forEach(b=>b.classList.toggle('active',b.dataset.view===id));document.getElementById('pageTitle').textContent=titles[id]||'AKPOL Journey';if(id==='materi')renderSubjects();if(id==='jadwal')renderSchedule();if(id==='notebook')renderBook();if(id==='catatan')renderNotes();if(id==='fisik')renderFitness();if(id==='progress')renderProgress();if(id==='tryout')renderHistory();window.scrollTo({top:0,behavior:'smooth'})}
+document.querySelectorAll('#nav button').forEach(b=>b.addEventListener('click',()=>showView(b.dataset.view)));
+
+const dailyPlan = [
+ {day:1,title:'Senin · Wawasan Kebangsaan',focus:'Pancasila dan UUD NRI Tahun 1945',items:['Baca atau ulangi satu submateri selama 25–30 menit.','Kerjakan 5–10 soal TWK dan baca pembahasannya.','Tulis 3 poin penting di Notebook / Gemini Book.']},
+ {day:2,title:'Selasa · Numerik & Penalaran',focus:'Pola bilangan dan aritmetika dasar',items:['Pelajari satu jenis soal dan contoh penyelesaiannya.','Kerjakan 5–10 soal tanpa terburu-buru.','Catat kesalahan dan cara memperbaikinya.']},
+ {day:3,title:'Rabu · Bahasa Indonesia',focus:'Ide pokok, simpulan, dan pemahaman teks',items:['Baca satu teks pendek dan tentukan ide pokoknya.','Latihan soal pemahaman bacaan.','Tulis kosakata atau konsep yang masih membingungkan.']},
+ {day:4,title:'Kamis · Bahasa Inggris',focus:'Vocabulary, grammar, dan reading',items:['Pelajari 8–10 kosakata beserta contoh kalimat.','Ulangi satu topik grammar.','Kerjakan beberapa soal reading atau grammar.']},
+ {day:5,title:'Jumat · Mental Ideologi',focus:'Integritas, toleransi, dan nilai kebangsaan',items:['Pelajari satu nilai dan contoh penerapannya.','Latih penalaran situasional dengan alasan yang jelas.','Buat refleksi singkat: sikap apa yang bisa diterapkan hari ini?']},
+ {day:6,title:'Sabtu · Latihan Campuran',focus:'Simulasi CAT dan evaluasi',items:['Kerjakan tryout singkat dengan timer.','Periksa jawaban dan kelompokkan kesalahan.','Pilih 2 materi yang perlu diulang minggu depan.']},
+ {day:0,title:'Minggu · Review & Pemulihan',focus:'Review ringan dan istirahat',items:['Baca kembali catatan selama 15–20 menit.','Rapikan jadwal untuk minggu berikutnya.','Berikan waktu untuk istirahat, tidur cukup, dan kegiatan pribadi.']}
+];
+function renderDailyPlan(){
+ const day=new Date().getDay(),p=dailyPlan.find(x=>x.day===day);
+ document.getElementById('dayBadge').textContent=p.title.split(' · ')[0];
+ document.getElementById('dailyPlanLabel').textContent='Agenda hari ini · '+today();
+ document.getElementById('dailyPlanCard').innerHTML=`<div class="row-between"><div><span class="pill pink">FOKUS HARI INI</span><h3 style="margin:10px 0 4px">${p.title}</h3><p class="muted small" style="margin:0">${p.focus}</p></div><span style="font-size:32px">🌷</span></div><ul style="line-height:1.9;font-size:13px">${p.items.map(x=>`<li>${x}</li>`).join('')}</ul><div class="btnrow"><button onclick="showView('materi')">Mulai latihan</button><button class="secondary" onclick="showView('notebook')">Buka notebook</button></div>`;
+}
+function saveTestDate(){
+ const value=document.getElementById('testDate').value;
+ if(!value){localStorage.removeItem(KEY+'_testDate');renderCountdown();toast('Tanggal tes dikosongkan.');return}
+ const chosen=new Date(value+'T00:00:00');
+ if(Number.isNaN(chosen.getTime())){toast('Tanggal tidak valid.');return}
+ localStorage.setItem(KEY+'_testDate',value);renderCountdown();toast('Tanggal target disimpan.');
+}
+function renderCountdown(){
+ const input=document.getElementById('testDate');if(!input)return;
+ const saved=localStorage.getItem(KEY+'_testDate');input.value=saved||'';
+ const n=document.getElementById('countdownNumber'),label=document.getElementById('countdownLabel');
+ if(!saved){n.textContent='Atur tanggal';label.textContent='Masukkan tanggal tes jika sudah diumumkan.';return}
+ const target=new Date(saved+'T00:00:00'),now=new Date();now.setHours(0,0,0,0);
+ const days=Math.ceil((target-now)/86400000);
+ if(days>0){n.textContent=days+' hari';label.textContent='menuju tanggal target yang kamu masukkan.'}
+ else if(days===0){n.textContent='Hari ini!';label.textContent='Tanggal target tes.'}
+ else{n.textContent='Terlewat';label.textContent='Perbarui tanggal jika jadwal resmi berubah.'}
+}
+function saveBookNote(){
+ const title=document.getElementById('bookTitle').value.trim(),body=document.getElementById('bookBody').value.trim(),subject=document.getElementById('bookSubject').value;
+ if(!title||!body){toast('Isi judul dan rangkuman terlebih dahulu.');return}
+ if(!data.book)data.book=[];
+ data.book.unshift({id:Date.now(),title,body,subject,date:new Date().toISOString()});
+ save();document.getElementById('bookTitle').value='';document.getElementById('bookBody').value='';renderBook();toast('Halaman notebook tersimpan.');
+}
+function renderBook(){
+ if(!data.book)data.book=[];
+ const el=document.getElementById('bookList');if(!el)return;
+ document.getElementById('bookCountText').textContent=data.book.length+' halaman';
+ if(!data.book.length){el.innerHTML='<div class="card empty">Notebook masih kosong. Simpan rangkuman pertamamu di atas.</div>';return}
+ el.innerHTML=data.book.map(n=>`<div class="card"><div class="row-between"><span class="pill">${esc(n.subject)}</span><button class="secondary" onclick="deleteBookNote(${n.id})">Hapus</button></div><h3>${esc(n.title)}</h3><p class="small muted">${new Date(n.date).toLocaleDateString('id-ID')}</p><p style="white-space:pre-wrap;line-height:1.65;font-size:13px">${esc(n.body)}</p></div>`).join('');
+}
+function deleteBookNote(id){data.book=(data.book||[]).filter(n=>n.id!==id);save();renderBook()}
+function makeGeminiPrompt(){
+ const mode=document.getElementById('geminiMode').value,material=document.getElementById('geminiInput').value.trim();
+ const asks={
+ summary:'Susun rangkuman yang akurat, terstruktur, lengkap tetapi mudah dipahami siswa kelas XII. Jelaskan istilah penting dan beri contoh sederhana.',
+ quiz:'Buat 10 soal latihan orisinal tingkat menengah, pilihan ganda A–D, berdasarkan materi. Sertakan kunci jawaban dan pembahasan logis setelah semua soal. Jangan mengklaim sebagai soal resmi atau bocoran seleksi.',
+ flashcards:'Buat flashcard tanya-jawab ringkas untuk mengingat konsep penting. Utamakan pemahaman, bukan sekadar hafalan.',
+ explain:'Jelaskan materi langkah demi langkah dengan bahasa Indonesia sederhana. Beri analogi atau contoh, lalu cek pemahaman dengan 3 pertanyaan latihan dan pembahasannya.',
+ plan:'Buat rencana review 5 hari yang realistis, dengan sesi 25–35 menit, latihan soal, evaluasi kesalahan, dan waktu istirahat.'
+ };
+ const prompt='Aku sedang mempersiapkan diri untuk belajar seleksi AKPOL 2027. Bantu aku belajar secara bertanggung jawab. '+asks[mode]+'\\n\\nMateri/catatan yang harus digunakan:\\n'+(material||'[Tempel materi atau tuliskan topik yang ingin dipelajari di sini]')+'\\n\\nJika ada informasi yang tidak pasti atau ketentuan seleksi yang berubah, tandai dan sarankan untuk memeriksa sumber resmi. Jangan mengarang sumber atau mengklaim ini kisi-kisi resmi.';
+ document.getElementById('geminiPrompt').textContent=prompt;
+}
+async function copyGeminiPrompt(){
+ const prompt=document.getElementById('geminiPrompt').textContent;
+ try{await navigator.clipboard.writeText(prompt);toast('Prompt disalin. Tempelkan di Gemini.')}
+ catch(e){const ta=document.createElement('textarea');ta.value=prompt;document.body.appendChild(ta);ta.select();try{document.execCommand('copy');toast('Prompt disalin.')}catch(err){toast('Pilih dan salin teks prompt secara manual.')}ta.remove()}
+}
+
+function renderStats(){let vals=Object.values(data.answers),correct=vals.filter(v=>v.correct).length;document.getElementById('statAnswered').textContent=vals.length;document.getElementById('statAccuracy').textContent=vals.length?Math.round(correct/vals.length*100)+'%':'—';document.getElementById('statSessions').textContent=data.tasks.filter(t=>t.done).length;document.getElementById('statNotes').textContent=data.notes.length+(data.book?data.book.length:0);document.getElementById('quizCounter').textContent=vals.length+' soal dijawab';renderTodayTasks()}
+function renderTodayTasks(){let el=document.getElementById('todayTasks');if(!el)return;el.innerHTML=data.tasks.slice(0,6).map(t=>`<label class="task"><input type="checkbox" ${t.done?'checked':''} onchange="toggleTask('${t.id}',this.checked)"><span style="flex:1"><b style="${t.done?'text-decoration:line-through;opacity:.65':''}">${esc(t.text)}</b><small>${t.duration} menit</small></span></label>`).join('')||'<div class="empty">Belum ada target.</div>'}
+function toggleTask(id,checked){let t=data.tasks.find(t=>t.id===id);if(t)t.done=checked;save();renderTodayTasks();if(document.getElementById('view-jadwal').classList.contains('active'))renderSchedule();if(document.getElementById('view-progress').classList.contains('active'))renderProgress()}
+function renderSubjects(){document.getElementById('subjectCards').innerHTML=subjects.map(s=>{let qs=questions.filter(q=>q.s===s.id),ans=qs.filter(q=>data.answers[q.id]),right=ans.filter(q=>data.answers[q.id].correct).length;return `<div class="card"><div class="subject"><div class="subject-icon">${s.icon}</div><div><h3>${s.name}</h3><p>${s.desc}</p></div></div><div class="progress"><span style="width:${qs.length?ans.length/qs.length*100:0}%"></span></div><div class="subject-foot"><span>${ans.length}/${qs.length} soal dicoba</span><span>${ans.length?Math.round(right/ans.length*100)+'% benar':'Belum mulai'}</span></div><button style="width:100%;margin-top:14px" onclick="startSubject('${s.id}')">Mulai latihan</button></div>`}).join('')}
+let currentSubject=null,currentQ=0;
+function startSubject(id){currentSubject=id;currentQ=0;document.getElementById('quizHeading').textContent=subjects.find(s=>s.id===id).name;document.getElementById('quizSub').textContent='Kerjakan dengan tenang, lalu baca pembahasan.';renderQuestion();document.getElementById('quizPanel').scrollIntoView({behavior:'smooth',block:'start'})}
+function currentList(){return questions.filter(q=>q.s===currentSubject)}
+function renderQuestion(){let list=currentList(),q=list[currentQ];if(!q){document.getElementById('quizPanel').innerHTML='<div class="empty">Soal pada bidang ini sudah ditampilkan. Kamu bisa mengulang bidang atau memilih bidang lain.</div>';return}let ans=data.answers[q.id];document.getElementById('quizPanel').innerHTML=`<div class="row-between"><span class="pill">${subjects.find(s=>s.id===q.s).name}</span><span class="small muted">Soal ${currentQ+1} dari ${list.length}</span></div><div class="question">${q.q}</div><div class="options">${q.o.map((o,i)=>`<button class="option ${ans?(i===q.a?'correct':i===ans.choice&&!ans.correct?'wrong':''):''}" ${ans?'disabled':''} onclick="answerQuestion('${q.id}',${i},'study')">${String.fromCharCode(65+i)}. ${o}</button>`).join('')}</div>${ans?`<div class="feedback ${ans.correct?'':'bad'}"><b>${ans.correct?'Benar! 🌱':'Belum tepat, tidak apa-apa.'}</b><br>Jawaban: ${String.fromCharCode(65+q.a)}. ${q.o[q.a]}<br>${q.e}</div>`:''}<div class="row-between" style="margin-top:18px"><button class="secondary" onclick="moveQuestion(-1)" ${currentQ===0?'disabled':''}>← Sebelumnya</button><button onclick="moveQuestion(1)">${currentQ===list.length-1?'Selesai':'Soal berikutnya →'}</button></div>`}
+function answerQuestion(id,choice,mode){let q=questions.find(q=>q.id===id);if(data.answers[id])return;data.answers[id]={choice,correct:choice===q.a,date:new Date().toISOString(),mode};save();if(mode==='study'){renderQuestion();renderSubjects()}else{renderTryQuestion()} }
+function moveQuestion(d){let list=currentList();currentQ=Math.max(0,Math.min(list.length-1,currentQ+d));renderQuestion()}
+function resetQuiz(){if(!currentSubject){toast('Pilih bidang latihan terlebih dahulu.');return}currentQ=0;renderQuestion()}
+function renderSchedule(){let el=document.getElementById('scheduleList');el.innerHTML=data.schedule.map((t,i)=>`<div class="task"><span class="pill">${t.day}</span><div style="flex:1"><b>${esc(t.text)}</b><small>${t.duration} menit · target belajar</small></div><button class="secondary" onclick="editSchedule(${i})">Edit</button></div>`).join('')}
+function editSchedule(i){let t=data.schedule[i],txt=prompt('Ubah target belajar:',t.text);if(txt===null)return;if(txt.trim())t.text=txt.trim();let dur=prompt('Durasi menit:',t.duration);if(dur!==null&&Number(dur)>0)t.duration=Math.min(180,Number(dur));save();renderSchedule();toast('Jadwal diperbarui.')}
+function resetSchedule(){if(!confirm('Pulihkan jadwal ke template awal?'))return;data.schedule=defaultTasks.map(x=>({...x}));save();renderSchedule();toast('Template jadwal dipulihkan.')}
+function addTask(){let text=document.getElementById('newTask').value.trim(),duration=Number(document.getElementById('newDuration').value)||30;if(!text){toast('Isi target belajar dulu.');return}data.tasks.unshift({id:'x'+Date.now(),text,duration:Math.min(180,Math.max(5,duration)),done:false});data.tasks=data.tasks.slice(0,20);save();document.getElementById('newTask').value='';renderTodayTasks();toast('Target berhasil ditambahkan.')}
+let tryout={active:false,ids:[],index:0,minutes:20,remaining:1200,answers:{},timer:null};
+function startTryout(){stopTryout(false);let count=Number(document.getElementById('tryCount').value),minutes=Number(document.getElementById('tryMinutes').value);tryout={active:true,ids:shuffle(questions.map(q=>q.id)).slice(0,count),index:0,minutes,remaining:minutes*60,answers:{},timer:null};document.getElementById('tryStatus').textContent='Tryout sedang berlangsung. Semangat!';renderTryQuestion();tickTimer();tryout.timer=setInterval(tickTimer,1000);toast('Tryout dimulai.')}
+function stopTryout(showMsg=true){if(tryout.timer)clearInterval(tryout.timer);if(tryout.active){tryout.active=false;let total=tryout.ids.length,done=Object.keys(tryout.answers).length,correct=Object.values(tryout.answers).filter(Boolean).length;data.history.unshift({date:new Date().toISOString(),total,done,correct,score:total?Math.round(correct/total*100):0});data.history=data.history.slice(0,10);data.lastScore=total?Math.round(correct/total*100):0;save();renderHistory();document.getElementById('lastScore').textContent=data.lastScore+'%';document.getElementById('tryStatus').textContent=`Tryout selesai: ${correct} benar dari ${done} dijawab.`;document.getElementById('tryPanel').innerHTML=`<div class="feedback"><b>Tryout selesai 🌿</b><br>Skor: ${correct}/${total} soal (${data.lastScore}%). Soal yang belum dijawab tidak dihitung benar. Baca kembali pembahasan pada menu Materi & Latihan.</div>`;if(showMsg)toast('Hasil tryout disimpan.')} }
+function tickTimer(){if(!tryout.active)return;tryout.remaining--;let sec=Math.max(0,tryout.remaining),m=String(Math.floor(sec/60)).padStart(2,'0'),s=String(sec%60).padStart(2,'0');document.getElementById('timerDisplay').textContent=m+':'+s;document.getElementById('timerBar').style.width=(sec/(tryout.minutes*60)*100)+'%';if(sec<=0)stopTryout()}
+function renderTryQuestion(){let panel=document.getElementById('tryPanel');if(!tryout.active||!tryout.ids.length){panel.innerHTML='<div class="empty">Mulai tryout untuk mengambil soal secara acak.</div>';document.getElementById('tryProgress').textContent='0/0';return}let id=tryout.ids[tryout.index],q=questions.find(q=>q.id===id),chosen=tryout.answers[id];document.getElementById('tryProgress').textContent=`${tryout.index+1}/${tryout.ids.length}`;document.getElementById('trySub').textContent=`${Object.keys(tryout.answers).length} dari ${tryout.ids.length} soal telah dijawab.`;panel.innerHTML=`<div class="row-between"><span class="pill">${subjects.find(s=>s.id===q.s).name}</span><span class="small muted">Soal ${tryout.index+1} dari ${tryout.ids.length}</span></div><div class="question">${q.q}</div><div class="options">${q.o.map((o,i)=>`<button class="option ${chosen===i?'chosen':''}" onclick="answerTry('${id}',${i})">${String.fromCharCode(65+i)}. ${o}</button>`).join('')}</div><div class="row-between" style="margin-top:18px"><button class="secondary" onclick="tryMove(-1)" ${tryout.index===0?'disabled':''}>← Sebelumnya</button><button onclick="tryMove(1)">${tryout.index===tryout.ids.length-1?'Selesai tryout':'Berikutnya →'}</button></div>`}
+function answerTry(id,choice){if(!tryout.active)return;tryout.answers[id]=choice===questions.find(q=>q.id===id).a;data.answers[id]={choice,correct:choice===questions.find(q=>q.id===id).a,date:new Date().toISOString(),mode:'tryout'};save();renderTryQuestion()}
+function tryMove(d){if(!tryout.active)return;if(tryout.index+d>=tryout.ids.length){stopTryout();return}tryout.index=Math.max(0,Math.min(tryout.ids.length-1,tryout.index+d));renderTryQuestion()}
+function renderHistory(){let el=document.getElementById('tryHistory');if(!data.history.length){el.innerHTML='<div class="empty">Belum ada riwayat.</div>';return}el.innerHTML=data.history.map(h=>`<div class="task"><span class="subject-icon">⏱️</span><div style="flex:1"><b>${new Date(h.date).toLocaleString('id-ID',{dateStyle:'medium',timeStyle:'short'})}</b><small>${h.correct} benar · ${h.done}/${h.total} dijawab</small></div><span class="pill ${h.score>=70?'':'pink'}">${h.score}%</span></div>`).join('')}
+function saveNote(){let title=document.getElementById('noteTitle').value.trim(),body=document.getElementById('noteBody').value.trim();if(!title||!body){toast('Isi judul dan catatan terlebih dahulu.');return}data.notes.unshift({id:Date.now(),title,body,date:new Date().toISOString()});save();document.getElementById('noteTitle').value='';document.getElementById('noteBody').value='';renderNotes();toast('Catatan tersimpan.')}
+function renderNotes(){let el=document.getElementById('notesList');document.getElementById('noteCountText').textContent=data.notes.length+' catatan';if(!data.notes.length){el.innerHTML='<div class="card empty">Belum ada catatan. Buat catatan pertamamu di atas.</div>';return}el.innerHTML=data.notes.map(n=>`<div class="card"><div class="row-between"><span class="pill">${new Date(n.date).toLocaleDateString('id-ID')}</span><button class="secondary" onclick="deleteNote(${n.id})">Hapus</button></div><h3>${esc(n.title)}</h3><p style="white-space:pre-wrap;line-height:1.6;font-size:13px">${esc(n.body)}</p></div>`).join('')}
+function deleteNote(id){data.notes=data.notes.filter(n=>n.id!==id);save();renderNotes()}
+function saveFitness(){let r=Number(document.getElementById('runMinutes').value)||0,p=Number(document.getElementById('pushups').value)||0,s=Number(document.getElementById('situps').value)||0,n=document.getElementById('fitnessNote').value.trim();if(!r&&!p&&!s&&!n){toast('Isi setidaknya satu catatan latihan.');return}data.fitness.unshift({id:Date.now(),date:new Date().toISOString(),run:r,pushups:p,situps:s,note:n});data.fitness=data.fitness.slice(0,30);save();['runMinutes','pushups','situps','fitnessNote'].forEach(id=>document.getElementById(id).value='');renderFitness();toast('Catatan latihan tersimpan.')}
+function renderFitness(){let el=document.getElementById('fitnessHistory');if(!data.fitness.length){el.innerHTML='<div class="empty">Belum ada latihan tercatat.</div>';return}el.innerHTML=data.fitness.map(f=>`<div class="task"><span class="subject-icon">🌿</span><div style="flex:1"><b>${new Date(f.date).toLocaleDateString('id-ID',{dateStyle:'full'})}</b><small>Lari/kardio: ${f.run} menit · Push-up: ${f.pushups} · Sit-up: ${f.situps}</small>${f.note?`<small>${esc(f.note)}</small>`:''}</div><button class="secondary" onclick="deleteFitness(${f.id})">Hapus</button></div>`).join('')}
+function deleteFitness(id){data.fitness=data.fitness.filter(f=>f.id!==id);save();renderFitness()}
+function renderProgress(){let done=data.tasks.filter(t=>t.done).length,total=data.tasks.length,pct=total?Math.round(done/total*100):0;document.getElementById('weeklyPercent').textContent=pct+'%';document.getElementById('weeklyBar').style.width=pct+'%';document.getElementById('weeklyText').textContent=`${done} dari ${total} target selesai.`;let vals=Object.values(data.answers),correct=vals.filter(a=>a.correct).length;document.getElementById('overallAccuracy').textContent=vals.length?Math.round(correct/vals.length*100)+'%':'—';document.getElementById('overallText').textContent=vals.length?`${correct} jawaban benar dari ${vals.length} soal dijawab.`:'Mulai latihan untuk mengumpulkan data.';document.getElementById('subjectProgress').innerHTML=subjects.map(s=>{let qs=questions.filter(q=>q.s===s.id),as=qs.filter(q=>data.answers[q.id]),right=as.filter(q=>data.answers[q.id].correct).length;return `<div class="task"><span class="subject-icon">${s.icon}</span><div style="flex:1"><b>${s.name}</b><div class="progress"><span style="width:${qs.length?as.length/qs.length*100:0}%"></span></div><small>${as.length} dari ${qs.length} soal dicoba</small></div><span class="pill">${as.length?Math.round(right/as.length*100)+'%':'—'}</span></div>`}).join('')}
+function exportData(){let blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='cadangan-akpol-journey.json';a.click();URL.revokeObjectURL(url);toast('Cadangan data diunduh.')}
+function clearData(){if(!confirm('Yakin ingin menghapus semua progres, catatan, jadwal tambahan, dan riwayat fisik?'))return;localStorage.removeItem(KEY);data=fresh();save();renderSubjects();renderSchedule();renderNotes();renderFitness();renderProgress();renderHistory();toast('Data lokal direset.')}
+function shuffle(a){for(let i=a.length-1;i>0;i--){let j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
+function esc(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+renderStats();renderSubjects();renderSchedule();renderNotes();renderBook();renderFitness();renderProgress();renderHistory();renderDailyPlan();renderCountdown();
+</script>
+</body>
+</html>
